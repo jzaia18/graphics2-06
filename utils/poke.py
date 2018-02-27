@@ -68,54 +68,51 @@ def insert_all():
 
 
 def main(args, print_result=False):
-	result = ""
+    results = ""
     if(len(args) <= 1):
-        results += "not enough arguments"
-        results += "args"
-        results += "-----"
-        results += "upload_db - imports the dataset"
-        results += "heavier_than <weight> - gets every pokemon heavier than <weight>"
-        results += "lighter_than <weight> - gets every pokemon lighter than <weight>"
-        results += "has_type <type> - gets every pokemon with that type"
-        results += "has_name <species name> - gets the pokemon with that name"
-        results += "has_id <pokemon id num> - gets the pokemon with that id number"
+        results += "not enough arguments\n\n"
+        results += "args\n"
+        results += "-----\n"
+        results += "upload_db - imports the dataset\n"
+        results += "heavier_than <weight> - gets every pokemon heavier than <weight>\n"
+        results += "lighter_than <weight> - gets every pokemon lighter than <weight>\n"
+        results += "has_type <type> - gets every pokemon with that type\n"
+        results += "has_name <species name> - gets the pokemon with that name\n"
+        results += "has_id <pokemon id num> - gets the pokemon with that id number\n"
     elif(args[1] == "upload_db"):
-        results += "\ngetting data from api"
-        results += "this might take a while"
-        results += "------------------------"
+        print "getting data from api"
+        print "this might take a LONG while"
+        print "------------------------"
         insert_all()
     elif(args[1] == "heavier_than"):
         c = heavier_than(int(args[2]))
         for i in c:
-            results += i['name'] + ' : ' + str(i['weight'])
+            results += i['name'] + ' : ' + str(i['weight']) + '\n'
     elif(args[1] == "lighter_than"):
         c = lighter_than(int(args[2]))
         for i in c:
-            results += i['name'] + ' : ' + str(i['weight'])
+            results += i['name'] + ' : ' + str(i['weight']) + '\n'
     elif(args[1] == "has_type"):
         c = has_type(args[2])
         for i in c:
-            results += i['name'] + ' : ' + str(get_types(i))
+            results += i['name'] + ' : ' + str(get_types(i)) +'\n'
     elif(args[1] == "has_name"):
         c = has_name(args[2])
         for i in c:
-            results += 'Found pokemon!'
-            results += 'id: ' + str(i['id'])
-            results += 'name: ' + str(i['name'])
-            results += 'types: ' + str(get_types(i))
+            results += 'Found pokemon!\n'
+            results += 'id: ' + str(i['id']) +'\n'
+            results += 'name: ' + str(i['name']) + '\n'
+            results += 'types: ' + str(get_types(i)) + '\n'
     elif(args[1] == "has_id"):
         c = has_id(args[2])
         for i in c:
-            results += 'Found pokemon!'
-            results += 'id: ' + str(i['id'])
-            results += 'name: ' + str(i['name'])
-            results += 'types: ' + str(get_types(i))
-	if(print_result):
-		print results
-	return results
-
-
-
+            results += 'Found pokemon!\n'
+            results += 'id: ' + str(i['id']) + '\n'
+            results += 'name: ' + str(i['name']) + '\n'
+            results += 'types: ' + str(get_types(i)) + '\n'
+    if(print_result):
+        print results
+    return results
 
 
 if __name__ == '__main__':

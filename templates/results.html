@@ -5,10 +5,15 @@
   </head>
 
   <body>
-	{{result}}
+    <h1> PokeMongo Results </h1>
+    {% for each in result.split('\n')%}
+    {{each}} <br />
+    {% endfor %}
+    <br /> <br />
+	  <a href="{{exit}}">
+   	  <button>Back</button>
+	  </a>
+
   </body>
 
-	<a href="{{exit}}">
-   	<button>back</button>
-	</a>	
 </html>

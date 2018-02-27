@@ -6,6 +6,23 @@
 
   <body>
 
+    <h1> PokeMongo Query </h1>
+
+    <h3> {{err}} </h3>
+
+    <form method="POST" action="/results">
+      Query for: <br />
+      <input type="radio" name="query_type" value="heavier_than"> Pokemon heavier than ___kg <br />
+      <input type="radio" name="query_type" value="lighter_than"> Pokemon lighter than ___kg <br />
+      <input type="radio" name="query_type" value="has_type"> ___ type pokemon <br />
+      <input type="radio" name="query_type" value="has_name" checked> The pokemon called ___ <br />
+      <input type="radio" name="query_type" value="has_id"> The pokemon with id number ___ <br />
+
+      <br />
+      Query: <input type="text" name="query">
+      <input type="submit" value="Submit">
+    </form>
+
   </body>
 
 </html>
