@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from utils.poke import *
 
 
@@ -10,7 +10,7 @@ def root():
 
 @app.route('results',methods=['GET'])
 def results():
-	return main(request.form['args'])
+	return render_template('results.html',result=main(request.form['args']) ,exit=url_for('root'))
 
 if __name__ == "__main__":
   app.debug = True
